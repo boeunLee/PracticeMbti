@@ -8,6 +8,7 @@ const UserSimpleNameWrapper = styled.div`
     font-weight: 600;
     font-size: ${({ theme }) => theme.fontSize.md};
     color: ${({ theme }) => theme.colors.gray200};
+    vertical-align: middle;
   }
 `;
 

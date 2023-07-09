@@ -2,20 +2,21 @@ import { React, useState } from "react";
 import BottomInput from "../../components/common/Input/BottomInput";
 import { profile } from "../../mock/mockData";
 import UserSimpleName from "../../components/common/UserSimpleInfo/UserSimpleName";
-import { CommentWrapper, StyledHeart, InputWrapper } from "./CommentPageStyle";
+import { CommentWrapper, InputWrapper } from "./CommentPageStyle";
+import Response from "../PostPage/Response";
 
 export default function CommentPage({ show, author }) {
-  const [isHearted, setIsHearted] = useState(false);
-  const [heartCount, setHeartCount] = useState(0);
+  // const [isHearted, setIsHearted] = useState(false);
+  // const [heartCount, setHeartCount] = useState(0);
 
-  const handleHeart = () => {
-    if (!isHearted) {
-      setHeartCount((prev) => prev + 1);
-    } else {
-      setHeartCount((prev) => prev - 1);
-    }
-    setIsHearted((prev) => !prev);
-  };
+  // const handleHeart = () => {
+  //   if (!isHearted) {
+  //     setHeartCount((prev) => prev + 1);
+  //   } else {
+  //     setHeartCount((prev) => prev - 1);
+  //   }
+  //   setIsHearted((prev) => !prev);
+  // };
 
   const getStyledMbti = (mbti) => {
     if (mbti.includes("N")) {
@@ -47,14 +48,7 @@ export default function CommentPage({ show, author }) {
                       username={comment.username}
                     />
                     <p>{comment.message}</p>
-                    <button
-                      type="button"
-                      aria-label="하트"
-                      onClick={handleHeart}
-                    >
-                      <StyledHeart isHearted={isHearted} />
-                    </button>
-                    <span>{heartCount}</span>
+                    <Response heartCnt={1} isComment={true} />
                   </li>
                 )
             );
