@@ -4,7 +4,6 @@ import BasicLayout from "../../layout/BasicLayout";
 import Button from "../../components/common/Button/Button";
 import CommentPage from "../CommentPage/CommentPage";
 import UserSimpleName from "../../components/common/UserSimpleInfo/UserSimpleName";
-import { comment } from "../../mock/mockData";
 import Comment from "../../images/icon-message.svg";
 import More from "../../images/icon-more-small.svg";
 import {
@@ -75,16 +74,18 @@ export default function PostDetailPage({ children }) {
           </li>
           <li>
             <img src={Comment} alt="댓글" />
-            <span>{comment.length}</span>
+            <span>{location.state.commentLen}</span>
           </li>
           <li>
             <img src={More} alt="더보기" />
           </li>
         </ResponseHeader>
         <MoreComment type="button" onClick={handleShowAllComments}>
-          댓글 {comment.length}개 모두 보기
+          댓글 {location.state.commentLen}개 모두 보기
         </MoreComment>
-        <CommentPage show={showAllComments}>{children}</CommentPage>
+        <CommentPage show={showAllComments} author={location.state.author}>
+          {children}
+        </CommentPage>
       </PostDetailBox>
     </BasicLayout>
   );
