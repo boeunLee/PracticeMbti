@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const LayoutWrapper = styled.div`
-  width: clamp(390px, 100%, 430px);
+  width: clamp(390px, 100%, 500px);
   min-height: 100vh;
   margin: 0 auto;
   position: relative;
