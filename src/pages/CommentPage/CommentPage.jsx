@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React } from "react";
 import BottomInput from "../../components/common/Input/BottomInput";
 import { profile } from "../../mock/mockData";
 import UserSimpleName from "../../components/common/UserSimpleInfo/UserSimpleName";
@@ -6,18 +6,6 @@ import { CommentWrapper, InputWrapper } from "./CommentPageStyle";
 import Response from "../PostPage/Response";
 
 export default function CommentPage({ show, author }) {
-  // const [isHearted, setIsHearted] = useState(false);
-  // const [heartCount, setHeartCount] = useState(0);
-
-  // const handleHeart = () => {
-  //   if (!isHearted) {
-  //     setHeartCount((prev) => prev + 1);
-  //   } else {
-  //     setHeartCount((prev) => prev - 1);
-  //   }
-  //   setIsHearted((prev) => !prev);
-  // };
-
   const getStyledMbti = (mbti) => {
     if (mbti.includes("N")) {
       if (mbti.includes("F")) {
