@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "../../common/Button/Button";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const HeaderWrapper = styled.main`
   margin-top: 50px;
@@ -9,7 +10,7 @@ const HeaderWrapper = styled.main`
 const HeaderInfo = styled.div`
   display: flex;
   flex-direction: row;
-  /* margin-top: 30px; */
+
   p {
     color: ${({ theme }) => theme.colors.gray200};
     font-size: ${({ theme }) => theme.fontSize.sm};
@@ -30,7 +31,6 @@ const HeaderMain = styled.div`
     color: ${({ theme }) => theme.colors.text};
     font-weight: 600;
     margin-right: 20px;
-    /* padding-top: 20px; */
     align-self: flex-end;
   }
   Button {
@@ -40,6 +40,10 @@ const HeaderMain = styled.div`
 `;
 
 export default function Header() {
+  const navigate = useNavigate();
+  const handleBtnClick = () => {
+    navigate(`question`);
+  };
   return (
     <HeaderWrapper>
       <HeaderInfo>
@@ -48,7 +52,8 @@ export default function Header() {
       </HeaderInfo>
       <HeaderMain>
         <h1>성격 유형에게 물어보세요</h1>
-        <Button size="md" color="question">
+
+        <Button size="md" color="question" onClick={handleBtnClick}>
           질문하기
         </Button>
       </HeaderMain>
