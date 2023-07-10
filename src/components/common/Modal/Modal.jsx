@@ -1,9 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import BasicLayout from "../../../layout/BasicLayout";
 
 const ModalContainer = styled.div`
-  /* 모달 스타일을 정의합니다. */
   position: fixed;
   top: 0;
   left: 0;
@@ -22,7 +20,6 @@ const ModalContent = styled.div`
   transform: translate(-50%, -50%);
   width: 300px;
   height: 150px;
-  /* 모달 내용의 스타일을 정의합니다. */
   background-color: white;
   padding: 20px;
   border-radius: 4px;
@@ -49,7 +46,6 @@ const ModalHeader = styled.div`
 
 const ButtonBox = styled.div`
   display: flex;
-  border: 1px solid black;
   height: calc(100% - 70px);
   border: 1px solid ${({ theme }) => theme.colors.gray100};
   button {
@@ -66,7 +62,7 @@ const ButtonBox = styled.div`
 
 export default function Modal({ isOpen, onClick, children }) {
   if (!isOpen) {
-    return null; // 모달이 열려있지 않으면 null을 반환하여 아무것도 렌더링하지 않습니다.
+    return null;
   }
   return (
     <ModalContainer>
