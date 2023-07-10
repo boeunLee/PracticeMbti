@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 import { ReactComponent as Heart } from "../../images/icon-heart.svg";
 import Comment from "../../images/icon-message.svg";
 import More from "../../images/icon-more-small.svg";
+import Modal from "../../components/common/Modal/Modal";
 
 const ResponseHeader = styled.ul`
   margin-top: 30px;
@@ -69,6 +70,7 @@ const StyledHeart = styled(Heart)`
 export default function Response({ heartCnt, commentLen, isComment }) {
   const [isHearted, setIsHearted] = useState(false);
   const [heartCount, setHeartCount] = useState(heartCnt);
+  const [modalShow, setModalShow] = useState(false);
 
   const handleHeart = () => {
     if (!isHearted) {
@@ -78,6 +80,11 @@ export default function Response({ heartCnt, commentLen, isComment }) {
     }
     setIsHearted((prev) => !prev);
   };
+
+  const handleMoreBtnClick = () => {
+    setModalShow((prev) => !prev);
+  };
+
   return (
     <ResponseHeader isComment={isComment}>
       <li>
@@ -96,8 +103,11 @@ export default function Response({ heartCnt, commentLen, isComment }) {
         <span>{commentLen}</span>
       </li>
       <li>
-        <img src={More} alt="더보기" />
+        <button type="button" onClick={handleMoreBtnClick}>
+          <img src={More} alt="더보기" />
+        </button>
       </li>
+      <Modal isOpen={modalShow} onClick={handleMoreBtnClick}></Modal>
     </ResponseHeader>
   );
 }
