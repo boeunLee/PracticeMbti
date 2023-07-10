@@ -1,5 +1,4 @@
-import styled, { css } from "styled-components";
-import { ReactComponent as Heart } from "../../images/icon-heart.svg";
+import styled from "styled-components";
 
 const CommentWrapper = styled.ul`
   li {
@@ -20,21 +19,11 @@ const CommentWrapper = styled.ul`
   }
 `;
 
-const StyledHeart = styled(Heart)`
-  ${(props) =>
-    props.isHearted
-      ? css`
-          path {
-            stroke: ${({ theme }) => theme.colors.mainCoral};
-            fill: ${({ theme }) => theme.colors.mainCoral};
-          }
-        `
-      : Heart}
-`;
-
 const InputWrapper = styled.div`
   display: flex;
   justify-content: center;
 `;
 
-export { CommentWrapper, StyledHeart, InputWrapper };
+const NewCommentWrapper = styled(CommentWrapper)``;
+
+export { CommentWrapper, InputWrapper, NewCommentWrapper };
